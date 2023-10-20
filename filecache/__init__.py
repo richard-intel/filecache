@@ -86,7 +86,7 @@ def _get_cache_name(function):
     module_name = _inspect.getfile(function)
     cache_name = module_name
     if _os.path.isfile(cache_name) is False:
-        cache_name = _os.path.basename(cache_name)
+        cache_name = _os.path.dirname(cache_name) + "_" + _os.path.basename(cache_name)
     
     # fix for '<string>' or '<stdin>' in exec or interpreter usage.
     cache_name = cache_name.replace('<', '_lt_')
